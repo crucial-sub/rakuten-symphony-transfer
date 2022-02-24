@@ -16,9 +16,11 @@ const DetailPage: FC<{ linkData: linkDataType[] | null }> = ({ linkData }) => {
     }
   }, [linkData]);
 
+  if (!file) return <div>로딩 중</div>;
+
   return (
     <>
-      <DetailHeader />
+      <DetailHeader fileTitle={file.sent.subject} />
       <DetailArticle />
     </>
   );
