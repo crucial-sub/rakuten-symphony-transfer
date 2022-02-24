@@ -3,7 +3,7 @@ import styled from "styled-components";
 import colors from "styles/colors";
 import Button from "components/layout/Button";
 
-const DetailHeader: FC<{ fileTitle: string }> = (fileTitle) => {
+const DetailHeader: FC<{ linkTitle: string }> = ({ linkTitle }) => {
   const fileUrl = window.location.href.slice(7);
 
   const popUpAlert = () => {
@@ -13,7 +13,7 @@ const DetailHeader: FC<{ fileTitle: string }> = (fileTitle) => {
   return (
     <Header>
       <LinkInfo>
-        <Title>{fileTitle.fileTitle}</Title>
+        <Title>{linkTitle}</Title>
         <Url>{fileUrl}</Url>
       </LinkInfo>
       <DownloadButton onClick={popUpAlert}>

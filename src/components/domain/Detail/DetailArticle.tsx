@@ -1,25 +1,44 @@
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import colors from "styles/colors";
+import { File } from "types/linkTypes";
+import { getCreatedAt } from "utils/getCreatedAt";
+import { getFileSize } from "utils/getFileSize";
 
-const DetailArticle = () => {
+const DetailArticle: FC<{
+  linkContent: string;
+  downloadCount: number;
+  files: File[];
+  fileCount: number;
+  thumbnailUrl: string;
+  createdAt: number;
+}> = ({
+  linkContent,
+  downloadCount,
+  files,
+  fileCount,
+  thumbnailUrl,
+  createdAt,
+}) => {
+  const creationDate = getCreatedAt(createdAt);
+
   return (
     <Article>
       <Descrition>
         <Texts>
           <Top>링크 생성일</Top>
-          <Bottom>2022년 1월 12일 22:36 +09:00</Bottom>
+          <Bottom>{creationDate}</Bottom>
           <Top>메세지</Top>
-          <Bottom>로고파일 전달 드립니다.</Bottom>
+          <Bottom>{linkContent}</Bottom>
           <Top>다운로드 횟수</Top>
-          <Bottom>1</Bottom>
+          <Bottom>{downloadCount}</Bottom>
         </Texts>
         <LinkImage>
-          <Image />
+          <Image src={thumbnailUrl} />
         </LinkImage>
       </Descrition>
       <ListSummary>
-        <div>총 1개의 파일</div>
+        <div>총 {fileCount}개의 파일</div>
         <div>10.86KB</div>
       </ListSummary>
       <FileList>
@@ -97,14 +116,11 @@ const LinkImage = styled.div`
   }
 `;
 
-const Image = styled.span`
+const Image = styled.img`
   width: 120px;
+  height: 100%;
   display: inline-block;
-  background-image: url(/svgs/default.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  padding-bottom: 100%;
+  padding: 50% 0;
 `;
 
 const ListSummary = styled.div`

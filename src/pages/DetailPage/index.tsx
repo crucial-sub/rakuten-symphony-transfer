@@ -3,25 +3,32 @@ import type { FC } from "react";
 import DetailHeader from "components/domain/Detail/DetailHeader";
 import DetailArticle from "components/domain/Detail/DetailArticle";
 import { useParams } from "react-router-dom";
-import { linkDataType } from "utils/types";
+import { linkDataType } from "types/linkTypes";
 
 const DetailPage: FC<{ linkData: linkDataType[] | null }> = ({ linkData }) => {
   const { key } = useParams();
-  const [file, setFile] = useState<linkDataType>();
+  const [link, setLink] = useState<linkDataType>();
 
   useEffect(() => {
     if (linkData) {
-      const selectedFile = linkData.find((file) => file.key === key);
-      setFile(selectedFile);
+      const selectedLink = linkData.find((data) => data.key === key);
+      setLink(selectedLink);
     }
   }, [linkData]);
 
-  if (!file) return <div>로딩 중</div>;
+  if (!link) return <div>로딩 중</div>;
 
   return (
     <>
-      <DetailHeader fileTitle={file.sent.subject} />
-      <DetailArticle />
+      <DetailHeader linkTitle={link.sent.subject} />
+      <DetailArticle
+        linkContent={link.sent.content}
+        downloadCount={link.download_count}
+        thumbnailUrl={link.thumbnailUrl}
+        files={link.files}
+        fileCount={link.count}
+        createdAt={link.created_at}
+      />
     </>
   );
 };
