@@ -20,9 +20,9 @@ const DetailPage: FC<{ linkData: linkDataType[] | null }> = ({ linkData }) => {
 
   return (
     <>
-      <DetailHeader linkTitle={link.sent.subject} />
+      <DetailHeader linkTitle={link.sent ? link.sent.subject : "무제"} />
       <DetailArticle
-        linkContent={link.sent.content}
+        linkContent={link.sent ? link.sent.content : "내용 없음"}
         downloadCount={link.download_count}
         thumbnailUrl={link.thumbnailUrl}
         files={link.files}
