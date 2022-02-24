@@ -1,13 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import colors from "styles/colors";
 import Button from "components/layout/Button";
 
-const DetailHeader = () => {
+const DetailHeader: FC<{ fileTitle: string }> = (fileTitle) => {
   return (
     <Header>
       <LinkInfo>
-        <Title>로고파일</Title>
+        <Title>{fileTitle.fileTitle}</Title>
         <Url>localhost/7LF4MDLY</Url>
       </LinkInfo>
       <DownloadButton>
