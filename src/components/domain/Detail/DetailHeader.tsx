@@ -4,14 +4,24 @@ import colors from "styles/colors";
 import Button from "components/layout/Button";
 
 const DetailHeader: FC<{ fileTitle: string }> = (fileTitle) => {
+  const fileUrl = window.location.href.slice(7);
+
+  const popUpAlert = () => {
+    alert("다운로드 되었습니다.");
+  };
+
   return (
     <Header>
       <LinkInfo>
         <Title>{fileTitle.fileTitle}</Title>
-        <Url>localhost/7LF4MDLY</Url>
+        <Url>{fileUrl}</Url>
       </LinkInfo>
-      <DownloadButton>
-        <img referrerPolicy="no-referrer" src="/svgs/download.svg" alt="" />
+      <DownloadButton onClick={popUpAlert}>
+        <img
+          referrerPolicy="no-referrer"
+          src="/svgs/download.svg"
+          alt="download"
+        />
         받기
       </DownloadButton>
     </Header>
