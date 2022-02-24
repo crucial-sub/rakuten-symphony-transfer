@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "components/Container";
+import Container from "components/layout/Container";
 import DetailPage from "pages/DetailPage";
 import LinkPage from "pages/LinkPage";
 import { ThemeProvider } from "styled-components";
@@ -10,7 +10,7 @@ function App() {
     <>
       <GlobalStyle />
       <Container>
-        {/* <LinkPage /> */}
+        <LinkPage />
         <DetailPage />
       </Container>
     </>
