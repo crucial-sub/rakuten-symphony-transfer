@@ -11,7 +11,6 @@
 | <img src="https://avatars.githubusercontent.com/Ubermensch0608" width="100" height="100"/> | [우종원](https://github.com/Ubermensch0608) |           |
 |  <img src="https://avatars.githubusercontent.com/crucial-sub" width="100" height="100"/>   |  [박중섭](https://github.com/crucial-sub)   |           |
 |    <img src="https://avatars.githubusercontent.com/ttaerrim" width="100" height="100"/>    |    [이태림](https://github.com/ttaerrim)    |           |
-|   <img src="https://avatars.githubusercontent.com/penguin311" width="100" height="100"/>   |   [임수영](https://github.com/penguin311)   |           |
 
 ## 🚀 스택
 
@@ -29,11 +28,11 @@
 - [ ] URL 클릭 시 동작
   - 유효 기간 이내: URL을 클립보드에 복사, ${링크 제목} 주소가 복사 되었습니다 alert
   - 유효 기간 만료: 아무 동작 하지 않음
-- [ ] 파일 개수 숫자 3자리 단위마다 콤마
-- [ ] 파일 사이즈 표시
+- [ ] 파일 개수 숫자 3자리 단위마다 콤마 - utils
+- [ ] 파일 사이즈 표시 - utils
   - 소수점 둘째 자리까지
   - 단위는 B, KB, MB, GB, TB로 표기 (ex. 10.86KB)
-- [ ] 유효 기간 표시는 실시간 반영
+- [ ] 유효 기간 표시는 실시간 반영 - utils
   - 48시간 미만: XX시간 XX분
   - 48시간 이상: X일
   - 만료: 만료됨
@@ -120,5 +119,3 @@ $ npm start || yarn start
 ### **박중섭** ✨
 
 ### **이태림** 🐯
-
-### **임수영** 🐧
