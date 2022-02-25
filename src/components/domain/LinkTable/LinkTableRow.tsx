@@ -1,14 +1,15 @@
 import React, { Fragment, FC } from "react";
 import { NavLink } from "react-router-dom";
 
-import { linkDataType } from "hooks/useAxios";
 import Avatar from "components/layout/Avatar";
 
 import * as S from "./styles";
 import styled from "styled-components";
-import normalize from "styled-normalize";
 
-interface LinkTableRowProps extends linkDataType {
+import { getThreeComma, getFileSize, getExpires } from "utils";
+import { LinkDataType } from "types/LinkDataType";
+
+interface LinkTableRowProps extends LinkDataType {
   id: string;
 }
 
@@ -17,6 +18,9 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
   thumbnailUrl,
   id,
   expires_at,
+  size,
+  sent,
+  count,
 }) => {
   const hostLocation = window.location.href;
 
@@ -74,21 +78,26 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
           </S.TableCell>
           <S.TableCell>
             <span>파일개수</span>
-            <span>1</span>
+            <span>{getThreeComma(count)}</span>
           </S.TableCell>
           <S.TableCell>
             <span>파일사이즈</span>
-            <span>10.86KB</span>
+            <span>{getFileSize(size)}</span>
           </S.TableCell>
           <S.TableCell>
             <span>유효기간</span>
-            <span>48시간 00분</span>
+            {/* {getExpires(expires_at)} */}
+            <span>{getExpires(expires_at)}</span>
           </S.TableCell>
           <S.TableCell>
             <span>받은사람</span>
-            <S.LinkReceivers>
-              <Avatar text="recruit@estmob.com" />
-            </S.LinkReceivers>
+            {sent && (
+              <S.LinkReceivers>
+                {sent.emails.map((email, index) => (
+                  <Avatar key={index} text={email} />
+                ))}
+              </S.LinkReceivers>
+            )}
           </S.TableCell>
         </StyledLink>
       </S.TableRow>

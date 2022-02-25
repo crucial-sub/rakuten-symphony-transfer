@@ -1,11 +1,12 @@
-import React from "react";
-import * as S from "./styles";
+import useAxios from "hooks/useAxios";
 
 import LinkTableRow from "./LinkTableRow";
-import useAxios, { linkDataType } from "hooks/useAxios";
+import { LinkDataType } from "types/LinkDataType";
+
+import * as S from "./styles";
 
 const LinkTable = () => {
-  const linkData: linkDataType[] | null[] = useAxios();
+  const linkData: LinkDataType[] | null[] = useAxios();
 
   const linkDataList = linkData.map((data) => (
     <LinkTableRow
@@ -23,7 +24,6 @@ const LinkTable = () => {
     />
   ));
 
-  console.log(linkData);
   return (
     <>
       <S.Title>마이 링크</S.Title>
@@ -37,7 +37,7 @@ const LinkTable = () => {
             <S.TableCell>받은사람</S.TableCell>
           </S.TableRow>
         </S.TableHead>
-        <S.TableBody>{linkDataList}</S.TableBody>
+        <S.TableBody>{linkData.length !== 0 && linkDataList}</S.TableBody>
       </S.Table>
     </>
   );
