@@ -2,8 +2,7 @@ import { Fragment } from "react";
 import * as S from "./styles";
 import Avatar from "components/layout/Avatar";
 import { Sent } from "types/LinkDataType";
-import { getFileSize } from "utils/getFileSize";
-import { getExpires } from "utils/getExpires";
+import { getThreeComma, getFileSize, getExpires } from "utils";
 
 const LinkTableRow = ({
   count,
@@ -37,7 +36,7 @@ const LinkTableRow = ({
         </S.TableCell>
         <S.TableCell>
           <span>파일개수</span>
-          <span>{count}</span>
+          <span>{getThreeComma(count)}</span>
         </S.TableCell>
         <S.TableCell>
           <span>파일사이즈</span>
