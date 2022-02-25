@@ -4,6 +4,8 @@ import DetailPage from "pages/DetailPage";
 import LinkPage from "pages/LinkPage";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "styles/GlobalStyle";
+import { useEffect } from "react";
+import useAxios from "hooks/useAxios";
 
 function App() {
   return (
@@ -11,7 +13,7 @@ function App() {
       <GlobalStyle />
       <Container>
         <LinkPage />
-        <DetailPage />
+        {/* <DetailPage /> */}
       </Container>
     </>
   );

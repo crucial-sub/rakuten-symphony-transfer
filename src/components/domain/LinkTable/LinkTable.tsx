@@ -2,8 +2,27 @@ import React from "react";
 import * as S from "./styles";
 import Avatar from "components/layout/Avatar";
 import LinkTableRow from "./LinkTableRow";
+import useAxios, { linkDataType } from "hooks/useAxios";
 
 const LinkTable = () => {
+  const linkData: linkDataType[] | null[] = useAxios();
+
+  const linkDataList = linkData.map((data) => (
+    <LinkTableRow
+      key={data!.key}
+      count={data!.count}
+      created_at={data!.created_at}
+      download_count={data!.download_count}
+      expires_at={data!.expires_at}
+      files={data!.files}
+      sent={data!.sent}
+      size={data!.size}
+      summary={data!.summary}
+      thumbnailUrl={data!.thumbnailUrl}
+    />
+  ));
+
+  console.log(linkData);
   return (
     <>
       <S.Title>마이 링크</S.Title>
@@ -18,9 +37,7 @@ const LinkTable = () => {
           </S.TableRow>
         </S.TableHead>
 
-        <S.TableBody>
-          <LinkTableRow />
-        </S.TableBody>
+        <S.TableBody>{linkDataList}</S.TableBody>
       </S.Table>
     </>
   );

@@ -1,8 +1,12 @@
 import { Fragment } from "react";
 import * as S from "./styles";
 import Avatar from "components/layout/Avatar";
+import type { FC } from "react";
+import { linkDataType } from "hooks/useAxios";
 
-const LinkTableRow = () => {
+const LinkTableRow: FC<linkDataType> = ({}) => {
+  const hostLocation = window.location.href;
+
   return (
     <Fragment>
       <S.TableRow>
@@ -17,7 +21,10 @@ const LinkTableRow = () => {
             </S.LinkImage>
             <S.LinkTexts>
               <S.LinkTitle>로고파일</S.LinkTitle>
-              <S.LinkUrl>localhost/7LF4MDLY</S.LinkUrl>
+              <S.LinkUrl>
+                {hostLocation}
+                {}
+              </S.LinkUrl>
             </S.LinkTexts>
           </S.LinkInfo>
           <span />

@@ -1,25 +1,25 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-interface linkDataType {
-  created_at: number;
-  key: string;
-  expires_at: number;
-  download_count: number;
+export interface linkDataType {
   count: number;
+  created_at: number;
+  download_count: number;
+  expires_at: number;
+  files: File[];
+  key: string;
   size: number;
   summary: string;
   thumbnailUrl: string;
-  files: File[];
   sent: Sent;
 }
-interface File {
+export interface File {
   key: string;
   thumbnailUrl: string;
   name: string;
   size: number;
 }
-interface Sent {
+export interface Sent {
   subject: string;
   content: string;
   emails: string[];
