@@ -6,12 +6,7 @@ export const getFileSize = (size: number) => {
     times++;
   }
   bytes = getBytes(times);
-  return `${roundToTwo(size)}${bytes}`;
-};
-
-const roundToTwo = (size: number) => {
-  var m = Number((Math.abs(size) * 100).toPrecision(15));
-  return (Math.round(m) / 100) * Math.sign(size);
+  return `${size.toFixed(2)}${bytes}`;
 };
 
 const getBytes = (times: number) => {
