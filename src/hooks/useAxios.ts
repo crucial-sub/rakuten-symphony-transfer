@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 const useAxios = <T>(url: string) => {
   const [linkData, setLinkData] = useState<T>();
-  const PROXY = "https://storage-fe.fastraffic.io";
+  const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
   useEffect(() => {
     (async () => {
       try {
