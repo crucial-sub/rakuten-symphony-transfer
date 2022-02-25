@@ -7,7 +7,15 @@ const useAxios = <T>(url: string) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`${PROXY}${url}`);
+        const { data } = await axios.get(`${PROXY}${url}`, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods":
+              "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers":
+              "Origin, Content-Type, X-Auth-Token",
+          },
+        });
         setLinkData(data);
       } catch (error) {
         console.log(error);
