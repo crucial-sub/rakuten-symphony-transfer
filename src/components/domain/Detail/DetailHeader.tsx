@@ -1,17 +1,31 @@
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import colors from "styles/colors";
 import Button from "components/layout/Button";
 
-const DetailHeader = () => {
+interface DetailHeaderProps {
+  linkTitle: string;
+}
+
+const DetailHeader: FC<DetailHeaderProps> = ({ linkTitle }) => {
+  const fileUrl = window.location.href.slice(7);
+
+  const popUpAlert = () => {
+    alert("다운로드 되었습니다.");
+  };
+
   return (
     <Header>
       <LinkInfo>
-        <Title>로고파일</Title>
-        <Url>localhost/7LF4MDLY</Url>
+        <Title>{linkTitle}</Title>
+        <Url>{fileUrl}</Url>
       </LinkInfo>
-      <DownloadButton>
-        <img referrerPolicy="no-referrer" src="/svgs/download.svg" alt="" />
+      <DownloadButton onClick={popUpAlert}>
+        <img
+          referrerPolicy="no-referrer"
+          src="/svgs/download.svg"
+          alt="download"
+        />
         받기
       </DownloadButton>
     </Header>
