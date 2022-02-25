@@ -4,6 +4,7 @@ import Avatar from "components/layout/Avatar";
 import type { FC } from "react";
 import { linkDataType } from "hooks/useAxios";
 import { Link } from "react-router-dom";
+import { EnumType } from "typescript";
 
 interface LinkTableRowProps extends linkDataType {
   id: string;
@@ -13,7 +14,7 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
   summary,
   thumbnailUrl,
   id,
-  count,
+  expires_at,
 }) => {
   const hostLocation = window.location.href;
 
@@ -23,7 +24,16 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
     event.currentTarget.src = "/svgs/default.svg";
   };
 
-  const toDetailHandler = () => {};
+  const showFileUrl = () => {
+    const calcedExpiresAt = expires_at * 1000;
+    const calcedCurrentDate = Number(new Date());
+
+    if (calcedExpiresAt < calcedCurrentDate) {
+      return "만료됨";
+    } else {
+      return `${hostLocation}${id}`;
+    }
+  };
 
   return (
     <Fragment>
@@ -41,7 +51,7 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
               </S.LinkImage>
               <S.LinkTexts>
                 <S.LinkTitle>{summary}</S.LinkTitle>
-                <S.LinkUrl>{hostLocation}</S.LinkUrl>
+                <S.LinkUrl>{showFileUrl()}</S.LinkUrl>
               </S.LinkTexts>
             </S.LinkInfo>
             <span />
