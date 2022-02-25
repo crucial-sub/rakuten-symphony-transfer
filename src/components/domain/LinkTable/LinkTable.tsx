@@ -3,6 +3,8 @@ import * as S from "./styles";
 import Avatar from "components/layout/Avatar";
 import LinkTableRow from "./LinkTableRow";
 import useAxios, { linkDataType } from "hooks/useAxios";
+import { Link } from "react-router-dom";
+import id from "date-fns/esm/locale/id/index.js";
 
 const LinkTable = () => {
   const linkData: linkDataType[] | null[] = useAxios();
@@ -10,6 +12,7 @@ const LinkTable = () => {
   const linkDataList = linkData.map((data) => (
     <LinkTableRow
       key={data!.key}
+      id={data!.key}
       count={data!.count}
       created_at={data!.created_at}
       download_count={data!.download_count}
@@ -36,7 +39,6 @@ const LinkTable = () => {
             <S.TableCell>받은사람</S.TableCell>
           </S.TableRow>
         </S.TableHead>
-
         <S.TableBody>{linkDataList}</S.TableBody>
       </S.Table>
     </>
