@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { getExpires } from "utils";
 import * as S from "./styles";
+
 interface DetailHeaderProps {
   linkTitle: string;
   expires_at: number;
