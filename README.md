@@ -46,6 +46,8 @@
 - [x] 받기 버튼 누르면 alert로 '다운로드 되었습니다.' 띄움
 - [x] 유효 기간 이내일 경우만 파일 목록 표시
 
+⚠️ API에 명세된 유효 기간이 22.02.25 기준 전부 만료된 날짜로 확인되어 편의 상 날짜를 조절했습니다. 날짜를 조절하지 않은 코드는 [여기](https://github.com/console-lo9/rakuten-symphony-transfer/tree/no-time-change)에서 확인 가능합니다.
+
 ## ⚙ 설치
 
 ```
