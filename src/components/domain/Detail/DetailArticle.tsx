@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import colors from "styles/colors";
-import { File, linkDataType } from "types/linkTypes";
+import { File } from "types/linkTypes";
 import { getCreatedAt } from "utils/getCreatedAt";
 import { getFileSize } from "utils/getFileSize";
 
@@ -23,6 +23,7 @@ const DetailArticle: FC<DetailArticleProps> = ({
   created_at,
 }) => {
   const createdAt = getCreatedAt(created_at);
+  const totalSize = files.reduce((acc, cur) => acc + cur.size, 0);
 
   return (
     <Article>
@@ -36,21 +37,23 @@ const DetailArticle: FC<DetailArticleProps> = ({
           <Bottom>{download_count}</Bottom>
         </Texts>
         <LinkImage>
-          <Image src={thumbnailUrl} />
+          <Image src={thumbnailUrl} alt="Link image" />
         </LinkImage>
       </Descrition>
       <ListSummary>
         <div>총 {count}개의 파일</div>
-        <div>10.86KB</div>
+        <div>{getFileSize(totalSize)}</div>
       </ListSummary>
       <FileList>
-        <FileListItem>
-          <FileItemInfo>
-            <span />
-            <span>logo.png</span>
-          </FileItemInfo>
-          <FileItemSize>10.86KB</FileItemSize>
-        </FileListItem>
+        {files.map((item, i) => (
+          <FileListItem key={`item-${i}`}>
+            <FileItemInfo>
+              <span />
+              <span>{item.name}</span>
+            </FileItemInfo>
+            <FileItemSize>{getFileSize(item.size)}</FileItemSize>
+          </FileListItem>
+        ))}
       </FileList>
     </Article>
   );
