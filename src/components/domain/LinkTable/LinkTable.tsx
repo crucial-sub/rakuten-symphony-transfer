@@ -2,14 +2,15 @@ import React from "react";
 import * as S from "./styles";
 import Avatar from "components/layout/Avatar";
 import LinkTableRow from "./LinkTableRow";
-import useAxios, { linkDataType } from "hooks/useAxios";
+import useAxios from "hooks/useAxios";
+import { linkDataType } from "types/LinkDataType";
 import { Link } from "react-router-dom";
 import id from "date-fns/esm/locale/id/index.js";
 
 const LinkTable = () => {
   const linkData: linkDataType[] | null[] = useAxios();
-
-  const linkDataList = linkData.map((data) => (
+    
+     const linkDataList = linkData.map((data) => (
     <LinkTableRow
       key={data!.key}
       id={data!.key}
@@ -24,8 +25,7 @@ const LinkTable = () => {
       thumbnailUrl={data!.thumbnailUrl}
     />
   ));
-
-  console.log(linkData);
+  
   return (
     <>
       <S.Title>마이 링크</S.Title>
@@ -39,7 +39,7 @@ const LinkTable = () => {
             <S.TableCell>받은사람</S.TableCell>
           </S.TableRow>
         </S.TableHead>
-        <S.TableBody>{linkDataList}</S.TableBody>
+        <S.TableBody>{linkData.length !== 0 && linkDataList}</S.TableBody>
       </S.Table>
     </>
   );

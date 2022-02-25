@@ -4,8 +4,10 @@ import Avatar from "components/layout/Avatar";
 import type { FC } from "react";
 import { linkDataType } from "hooks/useAxios";
 import { Link } from "react-router-dom";
-import { EnumType } from "typescript";
+import { Sent } from "types/LinkDataType";
+import { getThreeComma, getFileSize, getExpires } from "utils";
 
+        
 interface LinkTableRowProps extends linkDataType {
   id: string;
 }
@@ -72,21 +74,26 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
           </S.TableCell>
           <S.TableCell>
             <span>파일개수</span>
-            <span>1</span>
+             <span>{getThreeComma(count)}</span>
           </S.TableCell>
           <S.TableCell>
             <span>파일사이즈</span>
-            <span>10.86KB</span>
+            <span>{getFileSize(size)}</span>
           </S.TableCell>
           <S.TableCell>
             <span>유효기간</span>
-            <span>48시간 00분</span>
+          {/* {getExpires(expires_at)} */}
+          <span>{getExpires(expires_at)}</span>
           </S.TableCell>
           <S.TableCell>
             <span>받은사람</span>
+            {sent && (
             <S.LinkReceivers>
-              <Avatar text="recruit@estmob.com" />
+              {sent.emails.map((email, index) => (
+                <Avatar key={index} text={email} />
+              ))}
             </S.LinkReceivers>
+          )}
           </S.TableCell>
         </Link>
       </S.TableRow>
