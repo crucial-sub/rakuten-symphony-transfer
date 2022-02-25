@@ -1,5 +1,6 @@
 import colors from "styles/colors";
 import styled from "styled-components";
+import { NavLinkProps } from "react-router-dom";
 
 export const Title = styled.h2`
   color: ${colors.grey700};
@@ -132,6 +133,7 @@ export const LinkTitle = styled.p`
 
 export const LinkUrl = styled.a`
   text-decoration: underline;
+  width: fit-content;
 
   :hover {
     color: ${colors.teal700};
