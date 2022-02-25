@@ -15,7 +15,7 @@
 
 ## 🚀 스택
 
-`React` `styled-components`
+`React` `styled-components` `TypeScript`
 
 ## ✨ 구현 사항
 

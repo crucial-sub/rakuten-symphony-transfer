@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import LinkTableRow from "./LinkTableRow";
 import { LinkDataType } from "types/linkTypes";
 import * as S from "./styles";
@@ -23,7 +23,7 @@ const LinkTable: FC<{ linkData: LinkDataType[] | null }> = ({ linkData }) => {
     ));
 
   return (
-    <>
+    <Fragment>
       <S.Title>마이 링크</S.Title>
       <S.Table>
         <S.TableHead>
@@ -37,7 +37,7 @@ const LinkTable: FC<{ linkData: LinkDataType[] | null }> = ({ linkData }) => {
         </S.TableHead>
         <S.TableBody>{linkDataList}</S.TableBody>
       </S.Table>
-    </>
+    </Fragment>
   );
 };
 
