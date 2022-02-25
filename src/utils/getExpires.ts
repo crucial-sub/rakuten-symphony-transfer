@@ -9,7 +9,7 @@ export const getExpires = (expire: number) => {
   const currDay = 24 * currHour;
 
   const diffDay = diff / currDay;
-  console.log(diffDay);
+
   if (diffDay < 0) {
     return `만료됨`;
   } else if (diffDay < 2) {

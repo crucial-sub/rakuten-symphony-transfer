@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { LinkDataType } from "types/LinkDataType";
 
-const useAxios = () => {
-  const [linkData, setLinkData] = useState<LinkDataType[] | null[]>([]);
-  const url = "/homeworks/links";
+const useAxios = <T>(url: string) => {
+  const [linkData, setLinkData] = useState<T>();
 
   useEffect(() => {
     (async () => {

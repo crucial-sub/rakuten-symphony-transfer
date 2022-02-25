@@ -2,11 +2,12 @@ import React from "react";
 import type { FC } from "react";
 
 import LinkTable from "components/domain/LinkTable/LinkTable";
+import { LinkDataType } from "types/linkTypes";
 
-const LinkPage: FC = () => {
+const LinkPage: FC<{ linkData: LinkDataType[] | null }> = ({ linkData }) => {
   return (
     <>
-      <LinkTable />
+      <LinkTable linkData={linkData} />
     </>
   );
 };

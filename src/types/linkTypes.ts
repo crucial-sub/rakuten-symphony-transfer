@@ -7,16 +7,17 @@ export interface LinkDataType {
   size: number;
   summary: string;
   thumbnailUrl: string;
-  files: File[];
-  sent?: Sent;
+  files: FileType[];
+  sent?: SentType;
 }
-export interface File {
+
+export interface FileType {
   key: string;
   thumbnailUrl: string;
   name: string;
   size: number;
 }
-export interface Sent {
+export interface SentType {
   subject: string;
   content: string;
   emails: string[];

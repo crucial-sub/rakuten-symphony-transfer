@@ -1,28 +1,26 @@
-import useAxios from "hooks/useAxios";
-
+import { FC } from "react";
 import LinkTableRow from "./LinkTableRow";
-import { LinkDataType } from "types/LinkDataType";
-
+import { LinkDataType } from "types/linkTypes";
 import * as S from "./styles";
 
-const LinkTable = () => {
-  const linkData: LinkDataType[] | null[] = useAxios();
-
-  const linkDataList = linkData.map((data) => (
-    <LinkTableRow
-      key={data!.key}
-      id={data!.key}
-      count={data!.count}
-      created_at={data!.created_at}
-      download_count={data!.download_count}
-      expires_at={data!.expires_at}
-      files={data!.files}
-      sent={data!.sent}
-      size={data!.size}
-      summary={data!.summary}
-      thumbnailUrl={data!.thumbnailUrl}
-    />
-  ));
+const LinkTable: FC<{ linkData: LinkDataType[] | null }> = ({ linkData }) => {
+  const linkDataList =
+    linkData &&
+    linkData.map((data) => (
+      <LinkTableRow
+        key={data!.key}
+        id={data!.key}
+        count={data!.count}
+        created_at={data!.created_at}
+        download_count={data!.download_count}
+        expires_at={data!.expires_at}
+        files={data!.files}
+        sent={data!.sent}
+        size={data!.size}
+        summary={data!.summary}
+        thumbnailUrl={data!.thumbnailUrl}
+      />
+    ));
 
   return (
     <>
@@ -37,7 +35,7 @@ const LinkTable = () => {
             <S.TableCell>받은사람</S.TableCell>
           </S.TableRow>
         </S.TableHead>
-        <S.TableBody>{linkData.length !== 0 && linkDataList}</S.TableBody>
+        <S.TableBody>{linkDataList}</S.TableBody>
       </S.Table>
     </>
   );
