@@ -9,7 +9,7 @@ const useAxios = <T>(url: string) => {
       try {
         const { data } = await axios.get(`${PROXY}${url}`, {
           headers: {
-            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Origin": "https://storage-fe.fastraffic.io/",
             "Access-Control-Allow-Methods":
               "GET, POST, PATCH, PUT, DELETE, OPTIONS",
             "Access-Control-Allow-Headers":
