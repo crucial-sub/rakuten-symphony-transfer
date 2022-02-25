@@ -1,10 +1,8 @@
 import React from "react";
 import * as S from "./styles";
-import Avatar from "components/layout/Avatar";
+
 import LinkTableRow from "./LinkTableRow";
 import useAxios, { linkDataType } from "hooks/useAxios";
-import { Link } from "react-router-dom";
-import id from "date-fns/esm/locale/id/index.js";
 
 const LinkTable = () => {
   const linkData: linkDataType[] | null[] = useAxios();

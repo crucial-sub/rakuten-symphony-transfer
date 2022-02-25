@@ -1,10 +1,12 @@
-import React, { EventHandler, Fragment, ReactEventHandler } from "react";
-import * as S from "./styles";
-import Avatar from "components/layout/Avatar";
-import type { FC } from "react";
+import React, { Fragment, FC } from "react";
+import { NavLink } from "react-router-dom";
+
 import { linkDataType } from "hooks/useAxios";
-import { Link } from "react-router-dom";
-import { EnumType } from "typescript";
+import Avatar from "components/layout/Avatar";
+
+import * as S from "./styles";
+import styled from "styled-components";
+import normalize from "styled-normalize";
 
 interface LinkTableRowProps extends linkDataType {
   id: string;
@@ -50,7 +52,7 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
   return (
     <Fragment>
       <S.TableRow>
-        <Link to={`/${id}`}>
+        <StyledLink to={`${id}`}>
           <S.TableCell>
             <S.LinkInfo>
               <S.LinkImage>
@@ -88,10 +90,12 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
               <Avatar text="recruit@estmob.com" />
             </S.LinkReceivers>
           </S.TableCell>
-        </Link>
+        </StyledLink>
       </S.TableRow>
     </Fragment>
   );
 };
+
+const StyledLink = styled(NavLink)``;
 
 export default LinkTableRow;
