@@ -1,44 +1,46 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import colors from "styles/colors";
-import { File } from "types/linkTypes";
+import { File, linkDataType } from "types/linkTypes";
 import { getCreatedAt } from "utils/getCreatedAt";
 import { getFileSize } from "utils/getFileSize";
 
-const DetailArticle: FC<{
+interface DetailArticleProps {
   linkContent: string;
-  downloadCount: number;
-  files: File[];
-  fileCount: number;
+  download_count: number;
   thumbnailUrl: string;
-  createdAt: number;
-}> = ({
+  files: File[];
+  count: number;
+  created_at: number;
+}
+
+const DetailArticle: FC<DetailArticleProps> = ({
   linkContent,
-  downloadCount,
-  files,
-  fileCount,
+  download_count,
   thumbnailUrl,
-  createdAt,
+  files,
+  count,
+  created_at,
 }) => {
-  const creationDate = getCreatedAt(createdAt);
+  const createdAt = getCreatedAt(created_at);
 
   return (
     <Article>
       <Descrition>
         <Texts>
           <Top>링크 생성일</Top>
-          <Bottom>{creationDate}</Bottom>
+          <Bottom>{createdAt}</Bottom>
           <Top>메세지</Top>
           <Bottom>{linkContent}</Bottom>
           <Top>다운로드 횟수</Top>
-          <Bottom>{downloadCount}</Bottom>
+          <Bottom>{download_count}</Bottom>
         </Texts>
         <LinkImage>
           <Image src={thumbnailUrl} />
         </LinkImage>
       </Descrition>
       <ListSummary>
-        <div>총 {fileCount}개의 파일</div>
+        <div>총 {count}개의 파일</div>
         <div>10.86KB</div>
       </ListSummary>
       <FileList>

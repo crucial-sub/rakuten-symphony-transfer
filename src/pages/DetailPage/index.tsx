@@ -23,11 +23,11 @@ const DetailPage: FC<{ linkData: linkDataType[] | null }> = ({ linkData }) => {
       <DetailHeader linkTitle={link.sent ? link.sent.subject : "무제"} />
       <DetailArticle
         linkContent={link.sent ? link.sent.content : "내용 없음"}
-        downloadCount={link.download_count}
+        download_count={link.download_count}
         thumbnailUrl={link.thumbnailUrl}
         files={link.files}
-        fileCount={link.count}
-        createdAt={link.created_at}
+        count={link.count}
+        created_at={link.created_at}
       />
     </>
   );

@@ -3,7 +3,11 @@ import styled from "styled-components";
 import colors from "styles/colors";
 import Button from "components/layout/Button";
 
-const DetailHeader: FC<{ linkTitle: string }> = ({ linkTitle }) => {
+interface DetailHeaderProps {
+  linkTitle: string;
+}
+
+const DetailHeader: FC<DetailHeaderProps> = ({ linkTitle }) => {
   const fileUrl = window.location.href.slice(7);
 
   const popUpAlert = () => {
