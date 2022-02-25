@@ -1,4 +1,2 @@
 node_modules
-.DS_Store
-src/.DS_Store
-src/pages/.DS_Store
+*.DS_Store
