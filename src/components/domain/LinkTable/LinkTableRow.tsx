@@ -1,8 +1,21 @@
 import { Fragment } from "react";
 import * as S from "./styles";
 import Avatar from "components/layout/Avatar";
+import { Sent } from "types/LinkDataType";
+import { getFileSize } from "utils/getFileSize";
+import { getExpires } from "utils/getExpires";
 
-const LinkTableRow = () => {
+const LinkTableRow = ({
+  count,
+  size,
+  expires_at,
+  sent,
+}: {
+  count: number;
+  size: number;
+  expires_at: number;
+  sent?: Sent;
+}) => {
   return (
     <Fragment>
       <S.TableRow>
@@ -24,21 +37,26 @@ const LinkTableRow = () => {
         </S.TableCell>
         <S.TableCell>
           <span>파일개수</span>
-          <span>1</span>
+          <span>{count}</span>
         </S.TableCell>
         <S.TableCell>
           <span>파일사이즈</span>
-          <span>10.86KB</span>
+          <span>{getFileSize(size)}</span>
         </S.TableCell>
         <S.TableCell>
           <span>유효기간</span>
-          <span>48시간 00분</span>
+          {/* {getExpires(expires_at)} */}
+          <span>{getExpires(expires_at)}</span>
         </S.TableCell>
         <S.TableCell>
           <span>받은사람</span>
-          <S.LinkReceivers>
-            <Avatar text="recruit@estmob.com" />
-          </S.LinkReceivers>
+          {sent && (
+            <S.LinkReceivers>
+              {sent.emails.map((email, index) => (
+                <Avatar key={index} text={email} />
+              ))}
+            </S.LinkReceivers>
+          )}
         </S.TableCell>
       </S.TableRow>
     </Fragment>

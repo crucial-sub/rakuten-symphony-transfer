@@ -11,7 +11,7 @@ function App() {
       <GlobalStyle />
       <Container>
         <LinkPage />
-        <DetailPage />
+        {/* <DetailPage /> */}
       </Container>
     </>
   );
