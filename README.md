@@ -1,6 +1,6 @@
 <h1 align="center"> 라쿠텐 심포니 코리아 과제 </h1>
 
-<h3 align="center"> 서비스 링크: </h3>
+<h3 align="center"> 서비스 링크: https://console-lo9-transfer.netlify.app/</h3>
 
 <p align="center"><img width="800" src="https://user-images.githubusercontent.com/43867711/155720368-756e7b23-6d3e-49aa-8f55-81adc2a0dd21.gif" /></p>
 
@@ -29,11 +29,11 @@
 - [x] URL 클릭 시 동작
   - 유효 기간 이내: URL을 클립보드에 복사, ${링크 제목} 주소가 복사 되었습니다 alert
   - 유효 기간 만료: 아무 동작 하지 않음
-- [x] 파일 개수 숫자 3자리 단위마다 콤마 - utils
-- [x] 파일 사이즈 표시 - utils
+- [x] 파일 개수 숫자 3자리 단위마다 콤마
+- [x] 파일 사이즈 표시
   - 소수점 둘째 자리까지
   - 단위는 B, KB, MB, GB, TB로 표기 (ex. 10.86KB)
-- [x] 유효 기간 표시는 실시간 반영 - utils
+- [x] 유효 기간 표시는 실시간 반영
   - 48시간 미만: XX시간 XX분
   - 48시간 이상: X일
   - 만료: 만료됨
@@ -46,7 +46,7 @@
 - [x] 받기 버튼 누르면 alert로 '다운로드 되었습니다.' 띄움
 - [x] 유효 기간 이내일 경우만 파일 목록 표시
 
-⚠️ API에 명세된 유효 기간이 22.02.25 기준 전부 만료된 날짜로 확인되어 편의 상 날짜를 조절했습니다. 날짜를 조절하지 않은 코드는 [여기](https://github.com/console-lo9/rakuten-symphony-transfer/tree/no-time-change)에서 확인 가능합니다.
+⚠️ API에 명세된 유효 기간이 22.02.25 기준 전부 만료된 날짜로 확인되어 편의 상 날짜를 조절했습니다. 날짜를 조절하지 않은 코드는 [여기](https://github.com/console-lo9/rakuten-symphony-transfer/blob/no-time-change/src/utils/getExpires.ts)에서 확인 가능합니다.
 
 ## ⚙ 설치
 
