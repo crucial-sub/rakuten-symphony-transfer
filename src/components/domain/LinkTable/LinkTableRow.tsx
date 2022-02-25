@@ -18,6 +18,9 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
 }) => {
   const hostLocation = window.location.href;
 
+  const calcedExpiresAt = expires_at * 1000;
+  const calcedCurrentDate = Number(new Date());
+
   const errorImageHandler: React.ReactEventHandler<HTMLImageElement> = (
     event
   ) => {
@@ -25,13 +28,22 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
   };
 
   const showFileUrl = () => {
-    const calcedExpiresAt = expires_at * 1000;
-    const calcedCurrentDate = Number(new Date());
-
-    if (calcedExpiresAt < calcedCurrentDate) {
-      return "만료됨";
-    } else {
+    if (calcedExpiresAt > calcedCurrentDate) {
       return `${hostLocation}${id}`;
+    } else {
+      return "만료됨";
+    }
+  };
+
+  const clipBoardHandler = (event: React.MouseEvent) => {
+    event.preventDefault();
+    const clipBoard = navigator.clipboard;
+
+    if (calcedExpiresAt > calcedCurrentDate) {
+      clipBoard.writeText(`${hostLocation}${id}`);
+      alert(`${hostLocation}${id} 주소가 복사 되었습니다.`);
+    } else {
+      return;
     }
   };
 
@@ -51,7 +63,9 @@ const LinkTableRow: FC<LinkTableRowProps> = ({
               </S.LinkImage>
               <S.LinkTexts>
                 <S.LinkTitle>{summary}</S.LinkTitle>
-                <S.LinkUrl>{showFileUrl()}</S.LinkUrl>
+                <S.LinkUrl onClick={clipBoardHandler}>
+                  {showFileUrl()}
+                </S.LinkUrl>
               </S.LinkTexts>
             </S.LinkInfo>
             <span />
