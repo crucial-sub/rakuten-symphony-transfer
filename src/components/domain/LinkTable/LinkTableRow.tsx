@@ -1,11 +1,17 @@
-import { Fragment } from "react";
+import React, { EventHandler, Fragment, ReactEventHandler } from "react";
 import * as S from "./styles";
 import Avatar from "components/layout/Avatar";
 import type { FC } from "react";
 import { linkDataType } from "hooks/useAxios";
 
-const LinkTableRow: FC<linkDataType> = ({}) => {
+const LinkTableRow: FC<linkDataType> = ({ summary, thumbnailUrl }) => {
   const hostLocation = window.location.href;
+
+  const errorImageHandler: React.ReactEventHandler<HTMLImageElement> = (
+    event
+  ) => {
+    event.currentTarget.src = "/svgs/default.svg";
+  };
 
   return (
     <Fragment>
@@ -15,16 +21,14 @@ const LinkTableRow: FC<linkDataType> = ({}) => {
             <S.LinkImage>
               <img
                 referrerPolicy="no-referrer"
-                src="/svgs/default.svg"
+                src={thumbnailUrl}
                 alt=""
+                onError={errorImageHandler}
               />
             </S.LinkImage>
             <S.LinkTexts>
-              <S.LinkTitle>로고파일</S.LinkTitle>
-              <S.LinkUrl>
-                {hostLocation}
-                {}
-              </S.LinkUrl>
+              <S.LinkTitle>{summary}</S.LinkTitle>
+              <S.LinkUrl>{hostLocation}</S.LinkUrl>
             </S.LinkTexts>
           </S.LinkInfo>
           <span />
