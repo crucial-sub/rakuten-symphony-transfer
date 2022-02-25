@@ -1,4 +1,4 @@
-export interface linkDataType {
+export interface LinkDataType {
   created_at: number;
   key: string;
   expires_at: number;

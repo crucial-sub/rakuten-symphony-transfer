@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { linkDataType } from "types/LinkDataType";
+import { LinkDataType } from "types/LinkDataType";
 
 const useAxios = () => {
-  const [linkData, setLinkData] = useState<linkDataType[] | null[]>([]);
+  const [linkData, setLinkData] = useState<LinkDataType[] | null[]>([]);
   const url = "/homeworks/links";
 
   useEffect(() => {
