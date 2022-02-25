@@ -20,7 +20,10 @@ const DetailPage: FC<{ linkData: LinkDataType[] | null }> = ({ linkData }) => {
 
   return (
     <Fragment>
-      <DetailHeader linkTitle={link.sent ? link.sent.subject : "무제"} />
+      <DetailHeader
+        linkTitle={link.sent ? link.sent.subject : "무제"}
+        expires_at={link.expires_at}
+      />
       <DetailArticle
         linkContent={link.sent ? link.sent.content : ""}
         download_count={link.download_count}
