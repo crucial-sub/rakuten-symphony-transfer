@@ -7,7 +7,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { LinkDataType } from "types/linkTypes";
 
 function App() {
-  const linkData = useAxios<LinkDataType[] | null>("/homeworks/links");
+  const linkData = useAxios<LinkDataType[] | null>(
+    "https://storage-fe.fastraffic.io/homeworks/links"
+  );
   if (!linkData) return null;
   return (
     <Container>
