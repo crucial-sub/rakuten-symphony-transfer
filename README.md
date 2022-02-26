@@ -48,6 +48,11 @@
 
 ⚠️ API에 명세된 유효 기간이 22.02.25 기준 전부 만료된 날짜로 확인되어 편의 상 날짜를 조절했습니다. 날짜를 조절하지 않은 코드는 [여기](https://github.com/console-lo9/rakuten-symphony-transfer/blob/no-time-change/src/utils/getExpires.ts)에서 확인 가능합니다.
 
+⚠️ REST API에서 불러오는 정보 중 svg 파일에 한해서 403 권한오류가 발생했습니다. 저희는 실제 서비스에서 데이터를 불러오는데 실패한 경우를 가정하여 이미지 로드 오류시 대체 이미지를 렌더링 하는 방법으로 위의 문제를 해결하였습니다.
+
+⚠️ 더 자세한 개발 정보는 팀의 wiki 에서 확인 가능합니다. <a href='https://github.com/console-lo9/rakuten-symphony-transfer/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A7%84%ED%96%89%EA%B3%BC%EC%A0%95%EA%B3%BC-%EA%B3%A0%EB%AF%BC
+'>팀 위키 바로가기</a>
+
 ## ⚙ 설치
 
 ```
