@@ -1,4 +1,4 @@
-<h1 align="center"> 라쿠텐 심포니 코리아 과제 </h1>
+<h1 align="center"> API로 제공받은 데이터를 시각화하여 보여주는 웹 페이지 </h1>
 
 <h3 align="center"> 서비스 링크: https://fluffy-mandazi-fe2be2.netlify.app </h3>
 
