@@ -1,7 +1,7 @@
 import React, { Fragment, FC } from "react";
 import { useNavigate } from "react-router-dom";
+
 import Avatar from "components/layout/Avatar";
-import * as S from "./styles";
 import { LinkDataType } from "types/linkTypes";
 import {
   getThreeComma,
@@ -9,6 +9,8 @@ import {
   getExpires,
   errorImageHandler,
 } from "utils";
+
+import * as S from "./styles";
 
 interface LinkTableRowProps extends LinkDataType {
   id: string;

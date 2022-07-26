@@ -1,11 +1,12 @@
 import { FC } from "react";
 import { FileType } from "types/linkTypes";
 import {
-  getCreatedAt,
   getFileSize,
   getExpires,
+  getCreatedAt,
   errorImageHandler,
 } from "utils";
+
 import * as S from "./styles";
 
 interface DetailArticleProps {

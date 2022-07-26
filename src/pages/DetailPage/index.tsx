@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import type { FC } from "react";
+import { useEffect, useState, FC, Fragment } from "react";
+import { useParams } from "react-router-dom";
+
 import DetailHeader from "components/domain/Detail/DetailHeader";
 import DetailArticle from "components/domain/Detail/DetailArticle";
-import { useParams } from "react-router-dom";
 import { LinkDataType } from "types/linkTypes";
 
 const DetailPage: FC<{ linkData: LinkDataType[] | null }> = ({ linkData }) => {
@@ -19,7 +19,7 @@ const DetailPage: FC<{ linkData: LinkDataType[] | null }> = ({ linkData }) => {
   if (!link) return <div>로딩 중</div>;
 
   return (
-    <>
+    <Fragment>
       <DetailHeader
         linkTitle={link.sent ? link.sent.subject : "무제"}
         expires_at={link.expires_at}
@@ -33,7 +33,7 @@ const DetailPage: FC<{ linkData: LinkDataType[] | null }> = ({ linkData }) => {
         created_at={link.created_at}
         expires_at={link.expires_at}
       />
-    </>
+    </Fragment>
   );
 };
 
