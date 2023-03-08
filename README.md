@@ -1,6 +1,8 @@
 <h1 align="center"> API로 제공받은 데이터를 시각화하여 보여주는 웹 페이지 </h1>
 
-<h3 align="center"> 서비스 링크: https://fluffy-mandazi-fe2be2.netlify.app </h3>
+<h3 align="center"> <del>서비스 링크: https:<k>//<k>fluffy-mandazi-fe2be2.netlify.app</del></h3>
+
+<h4 align="center">(과제에서 주어진 API가 만료되어 데이터를 불러올 수 없게 되었습니다.)</h4>
 
 <p align="center"><img width="800" src="https://user-images.githubusercontent.com/43867711/155720368-756e7b23-6d3e-49aa-8f55-81adc2a0dd21.gif" /></p>
 
@@ -40,7 +42,7 @@
 - [x] 받기 버튼 누르면 alert로 '다운로드 되었습니다.' 띄움
 - [x] 유효 기간 이내일 경우만 파일 목록 표시
 
-⚠️ API에 명세된 유효 기간이 22.02.25 기준 전부 만료된 날짜로 확인되어 편의 상 날짜를 조절했습니다. 날짜를 조절하지 않은 코드는 [여기](https://github.com/console-lo9/rakuten-symphony-transfer/blob/no-time-change/src/utils/getExpires.ts)에서 확인 가능합니다.
+⚠️ API에 명세된 유효 기간이 전부 만료된 날짜로 확인되어 편의 상 날짜를 조절했습니다. 날짜를 조절하지 않은 코드는 [여기](https://github.com/console-lo9/rakuten-symphony-transfer/blob/no-time-change/src/utils/getExpires.ts)에서 확인 가능합니다.
 
 ⚠️ REST API에서 불러오는 정보 중 svg 파일에 한해서 403 권한오류가 발생했습니다. 저희는 실제 서비스에서 데이터를 불러오는데 실패한 경우를 가정하여 이미지 로드 오류시 대체 이미지를 렌더링 하는 방법으로 위의 문제를 해결하였습니다.
 
